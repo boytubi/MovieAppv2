@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_alice_blue"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/dp_16"
+        android:paddingTop="@dimen/dp_16"
+        tools:context=".fragments.MovieDetailFragment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/dp_16"
+            android:paddingRight="@dimen/dp_16">
+
+            <ImageView
+                android:id="@+id/image_movie_poster"
+                android:layout_width="@dimen/dp_140"
+                android:layout_height="@dimen/dp_210"
+                android:layout_marginBottom="@dimen/dp_16"
+                android:layout_marginRight="@dimen/dp_16"
+                android:scaleType="fitXY" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textview_movie_title"
+                    style="?android:attr/textAppearanceMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dp_5"
+                    android:layout_marginLeft="@dimen/dp_5"
+                    android:textColor="@color/color_black"
+                    android:textIsSelectable="true"
+                    android:textStyle="bold" />
+
+                <include layout="@layout/rating" />
+
+                <include layout="@layout/favorite_button" />
+
+                <Button
+                    android:id="@+id/button_watch_trailer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dp_16"
+                    android:enabled="false"
+                    android:text="@string/watch_trailer"
+                    android:theme="@style/Button.Black" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/dp_16"
+            android:paddingRight="@dimen/dp_16">
+
+            <ImageView
+                android:layout_width="@dimen/dp_46"
+                android:layout_height="@dimen/dp_30"
+                android:layout_marginRight="@dimen/dp_8"
+                android:src="@drawable/imdb_logo" />
+
+            <TextView
+                android:id="@+id/textview_movie_user_rating"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp_30"
+                android:textIsSelectable="true"
+                android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/textview_movie_release_date"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp_30"
+                android:paddingLeft="@dimen/dp_16"
+                android:textIsSelectable="true"
+                android:textSize="@dimen/sp_20"
+                android:gravity="center"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/dp_16"
+            android:paddingRight="@dimen/dp_16"
+            android:paddingTop="@dimen/dp_16">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/over_view"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/sp_30" />
+
+            <TextView
+                android:id="@+id/textview_movie_overview"
+                style="?android:attr/textAppearanceMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textIsSelectable="true" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/dp_3"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_16"
+                android:paddingBottom="@dimen/dp_10"
+                android:paddingLeft="@dimen/dp_16"
+                android:paddingRight="@dimen/dp_16"
+                android:text="@string/videos"
+                android:textSize="@dimen/sp_30" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_view_trailer_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/dp_10"
+                android:paddingLeft="@dimen/dp_16"
+                android:paddingRight="@dimen/dp_16"
+                tools:listitem="@layout/trailer_list"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/dp_16"
+            android:paddingRight="@dimen/dp_16"
+            android:paddingTop="@dimen/dp_16">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/user_reviews"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/sp_30" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_view_review_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+                tools:listitem="@layout/review_list" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
